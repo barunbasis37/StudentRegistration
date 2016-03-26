@@ -29,7 +29,7 @@
                     controllerAs:"vm"
                 })
                 .state("root.student-Edit", {
-                    url: "/student-Registration",
+                    url: "/student-edit/:id",
                     templateUrl: "partials/Student/student-registration.tpl.html",
                     controller: "StudentController",
                     controllerAs: "vm"

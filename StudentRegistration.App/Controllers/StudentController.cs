@@ -14,7 +14,11 @@ namespace StudentRegistration.App.Controllers
         public IHttpActionResult Post(Student student)
         {
             StudentService service=new StudentService(Db);
-            student.Id = Guid.NewGuid().ToString();
+            if (string.IsNullOrWhiteSpace(student.Id))
+            {
+                student.Id = Guid.NewGuid().ToString();
+            }
+            
             string addedId = service.Save(student);
             return Ok(addedId);
         }

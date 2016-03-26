@@ -26,6 +26,11 @@ namespace StudentRegistration.Service
 
         public string Save(Student student)
         {
+            bool exists = repository.Exists(student.Id);
+            if (exists)
+            {
+                return repository.Update(student);
+            }
             return repository.Save(student);
         }
 

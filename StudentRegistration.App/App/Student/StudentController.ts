@@ -2,17 +2,18 @@
     export class StudentController {
         student: Student;
         private studentService: StudentService;
-        private stateService: angular.ui.IStateParamsService;
-        static $inject =["StudentService",];
-        constructor(studentService:StudentService,stateParamsService: angular.ui.IStateParamsService) {
+        private stateParamService: angular.ui.IStateParamsService;
+        static $inject =["StudentService","$stateParams"];
+        constructor(studentService:StudentService,stateParams: angular.ui.IStateParamsService) {
             this.student = new Student();
             this.studentService = studentService;
-            this.stateService = stateParamsService;
-            if (this.stateService["id"] != null) {
+            this.stateParamService = stateParams;
+            if (this.stateParamService["id"] != null) {
                 console.log("server call");
-                var id = this.stateService["id"];
-                this.studentService.GetDetail(id).then(success => {
+                var id = this.stateParamService["id"];
+                this.studentService.GetDetail(id).then((success:any):void => {
                     console.log(success);
+                    this.student = success.data;
                 }, error => {
                     console.log(error);
                 });

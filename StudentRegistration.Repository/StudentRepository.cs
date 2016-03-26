@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,16 @@ namespace StudentRegistration.Repository
             return added.Id;
         }
 
+        public bool Exists(string id)
+        {
+            return Db.Students.Any(x=>x.Id==id);
+        }
+        public string Update(Student student)
+        {
+            Db.Entry(student).State=EntityState.Modified;
+            Db.SaveChanges();
+            return student.Id;
+        }
         public StudentViewModel GetDetails(string id)
         {
             Student student= Db.Students.Find(id);
