@@ -14,7 +14,7 @@ namespace StudentRegistration.Model
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-        [StringLength(11, MinimumLength = 11, ErrorMessage = "Use 11 characters")]
+        //[StringLength(11, MinimumLength = 11, ErrorMessage = "Use 11 characters")]
         public string Phone { get; set; }
         [Required]
         [DataType(DataType.EmailAddress, ErrorMessage = "Email address is not valid")]

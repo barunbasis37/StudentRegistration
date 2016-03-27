@@ -51,6 +51,11 @@
   <ItemGroup>
     <Compile Include="BusinessDbContext.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="Migrations\201603271406525_Initial Create.cs" />
+    <Compile Include="Migrations\201603271406525_Initial Create.Designer.cs">
+      <DependentUpon>201603271406525_Initial Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -862,6 +867,11 @@
     <TypeScriptCompile Include="scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="scripts\typings\es6-promise\es6-promise.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603271406525_Initial Create.resx">
+      <DependentUpon>201603271406525_Initial Create.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
